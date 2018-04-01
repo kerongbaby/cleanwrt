@@ -43,6 +43,14 @@ define Device/default-nand
   MKUBIFS_OPTS := -m $$(PAGESIZE) -e 124KiB -c 2048
 endef
 
+define Device/at91-sama5d3_rwa500
+  $(Device/evaluation-dtb)
+  DEVICE_TITLE := Microchip(Atmel AT91) SAMA5D3 RWA500
+  KERNEL_SIZE := 6144k
+  $(Device/evaluation-sdimage)
+endef
+TARGET_DEVICES += at91-sama5d3_rwa500
+
 define Device/at91-sama5d3_xplained
   $(Device/evaluation-dtb)
   DEVICE_TITLE := Microchip(Atmel AT91) SAMA5D3 Xplained
