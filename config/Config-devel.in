@@ -6,7 +6,7 @@
 
 menuconfig DEVEL
 	bool "Advanced configuration options (for developers)"
-	default n
+	default y
 
 	config BROKEN
 		bool "Show broken platforms / packages" if DEVEL
@@ -21,7 +21,7 @@ menuconfig DEVEL
 
 	config DOWNLOAD_FOLDER
 		string "Download folder" if DEVEL
-		default ""
+		default "/workspace/dl"
 		help
 		  Store downloaded source bundles in this directory.
 		  If not set then defaults to './dl', which is removed by operations such as
@@ -75,7 +75,7 @@ menuconfig DEVEL
 
 	config KERNEL_GIT_CLONE_URI
 		string "Enter git repository to clone" if DEVEL
-		default ""
+		default "https://github.com/kerongbaby/risetek.linux.git"
 		help
 		  Enter the full git repository path i.e.:
 		  git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git

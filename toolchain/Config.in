@@ -40,6 +40,7 @@ menuconfig TARGET_OPTIONS
 
 menuconfig EXTERNAL_TOOLCHAIN
 	bool
+	default y
 	prompt "Use external toolchain"  if DEVEL
 	help
 	  If enabled, LEDE will compile using an existing toolchain instead of
@@ -60,7 +61,7 @@ menuconfig EXTERNAL_TOOLCHAIN
 		depends on EXTERNAL_TOOLCHAIN && !NATIVE_TOOLCHAIN
 		default "aarch64-unknown-linux-gnu"  if aarch64
 		default "aarch64_be-unknown-linux-gnu"  if aarch64_be
-		default "arm-unknown-linux-gnu"      if arm
+		default "arm-openwrt-linux-muslgnueabi"      if arm
 		default "armeb-unknown-linux-gnu"    if armeb
 		default "i486-unknown-linux-gnu"     if i386
 		default "mips-unknown-linux-gnu"     if mips
@@ -74,7 +75,7 @@ menuconfig EXTERNAL_TOOLCHAIN
 		depends on EXTERNAL_TOOLCHAIN && !NATIVE_TOOLCHAIN
 		default "aarch64-unknown-linux-gnu"  if aarch64
 		default "aarch64_be-unknown-linux-gnu"  if aarch64_be
-		default "arm-unknown-linux-gnu-"      if arm
+		default "arm-openwrt-linux-muslgnueabi-"      if arm
 		default "armeb-unknown-linux-gnu-"    if armeb
 		default "i486-unknown-linux-gnu-"     if i386
 		default "mips-unknown-linux-gnu-"     if mips
@@ -88,7 +89,7 @@ menuconfig EXTERNAL_TOOLCHAIN
 		depends on EXTERNAL_TOOLCHAIN && !NATIVE_TOOLCHAIN
 		default "/opt/cross/aarch64-unknown-linux-gnu"  if aarch64
 		default "/opt/cross/aarch64_be-unknown-linux-gnu"  if aarch64_be
-		default "/opt/cross/arm-unknown-linux-gnu"      if arm
+		default "/workspace/opt/cross/arm-openwrt-linux-muslgnueabi"      if arm
 		default "/opt/cross/armeb-unknown-linux-gnu"    if armeb
 		default "/opt/cross/i486-unknown-linux-gnu"     if i386
 		default "/opt/cross/mips-unknown-linux-gnu"     if mips
@@ -117,6 +118,7 @@ menuconfig EXTERNAL_TOOLCHAIN
 
 		config EXTERNAL_TOOLCHAIN_LIBC_USE_MUSL
 			bool "musl"
+			default y
 			select USE_MUSL
 
 	endchoice
